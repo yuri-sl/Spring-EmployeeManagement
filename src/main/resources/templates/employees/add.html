@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Employee</title>
+
+</head>
+<body>
+<h1>Add New Employee</h1>
+<form action="/employees/add" method = "post">
+    <div class="form-group">
+        <label for="name">Name: </label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="department">Department: </label>
+        <input type="text" id="department" name="department" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Salary: </label>
+        <input type="number" id="salary" name="salary" step="0.01" required>
+    </div>
+    <div class="form-group">
+        <label for="email">E-mail: </label>
+        <input type="text" id="email" name="email" required>
+    </div>
+    <button type="submit">Add Employee</button>
+</form>
+<div style="margin-top: 20px">
+    <a href="/employees">Back to List</a>
+</div>
+
+
+</body>
+</html>
