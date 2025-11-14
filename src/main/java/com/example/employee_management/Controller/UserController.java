@@ -1,9 +1,11 @@
 package com.example.employee_management.Controller;
 
 import com.example.employee_management.model.User;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -40,7 +42,10 @@ public class UserController {
     }
     // Recebe os dados do formulário, adiciona na lista e volta pra mesma página
     @PostMapping("/submitForm")
-    public String submitForm(@ModelAttribute User user,Model model){
+    public String submitForm(@Valid @ModelAttribute User user, BindingResult bindingResult,Model model){
+        if(bindingResult.hasErrors()){
+            return "userForm";
+        }
         user.setId(publicId++);
         usersList.add(user);
         return "redirect:/users/userForm";

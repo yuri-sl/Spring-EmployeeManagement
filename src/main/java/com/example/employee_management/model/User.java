@@ -16,10 +16,11 @@ import jakarta.validation.constraints.Email;
 @AllArgsConstructor
 public class User {
     private int id;
-    @NotNull(message="O nome não pode estar vazio")
+    @NotEmpty(message="O nome não pode estar vazio")
+    @Size(min=2,max=30,message="O nome deve ter entre 2 e 30 caracteres")
     private String firstName;
-    @NotNull(message="O nome não pode estar vazio")
+    @Email(message = "Forneça um email válido")
     private String email;
-    @NotNull(message="O email n pode ser vazio")
+    @NotEmpty(message="O email n pode ser vazio")
     private String lastName;
 }
